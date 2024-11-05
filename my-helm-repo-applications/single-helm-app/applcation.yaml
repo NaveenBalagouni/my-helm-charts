@@ -8,7 +8,7 @@ spec:
     namespace: single-helm-sample
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://github.com/NaveenBalagouni/my-argo-practice.git'
+    repoURL: 'https://github.com/NaveenBalagouni/my-helm-charts.git'
     path: helm-resources/single-helm-resouce
     targetRevision: main
     helm:
