@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: single-helm-source
+  namespace: argocd
+spec:
+  destination:
+    namespace: single-helm-sample
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/NaveenBalagouni/my-argo-practice.git'
+    path: my-helm-charts/single-helm-resource
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
